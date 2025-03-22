@@ -6,8 +6,8 @@ import (
 )
 
 func lerPedidos(pedidos chan<- int) {
-    for i := 1; i <= 5; i++ {
-        pedidos <- i
+    for pedido := range 5 {
+        pedidos <- pedido + 1
         time.Sleep(200 * time.Millisecond)
     }
     close(pedidos)
